@@ -1,14 +1,10 @@
-<div class="my-2 w-25">
-  <label for="" class="my-1">Categorys: </label>
-  <select class="form-control" (change)="filterCategory($event)">
-    <option value="all" selected >All</option>
-    <option value="{{ option }}" *ngFor="let option of category">
-      {{ option }}
-    </option>
-  </select>
-</div>
+<app-select
+  [data]="category"
+  [title]="'category'"
+  (selectedValue)="filterCategory($event)"
+></app-select>
 
-<div class="row mt-5">
+<div class="row mt-5" *ngIf="!loading">
   <div class="col-md-3 col-sm-12" *ngFor="let item of products">
     <div class="item">
       <img src="{{ item.image }}" alt="" />
@@ -22,4 +18,7 @@
       </div>
     </div>
   </div>
+</div>
+<div class="text-center w-100" *ngIf="loading">
+  <app-spinner></app-spinner>
 </div>

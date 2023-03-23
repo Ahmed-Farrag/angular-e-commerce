@@ -10,6 +10,7 @@ export class AllProductsComponent implements OnInit {
   title = "hi ahmed"
   products: any = []
   category: any = []
+  loading: boolean = false
   constructor(private service: ProductsService) {
 
   }
@@ -18,16 +19,22 @@ export class AllProductsComponent implements OnInit {
     this.getCategory()
   }
   getProducts() {
+    this.loading = true
     this.service.getAllProducts().subscribe((res: any) => {
       this.products = res
+      this.loading = false
     }, error => {
+      this.loading = false
       console.log(error.message);
     })
   }
   getCategory() {
+    this.loading = true
     this.service.getAllCategory().subscribe((res: any) => {
       this.category = res
+      this.loading = false
     }, error => {
+      this.loading = false
       console.log(error.message);
     })
   }
@@ -38,8 +45,12 @@ export class AllProductsComponent implements OnInit {
 
   }
   getProductsCat(key: string) {
+    this.loading = true
     this.service.getProductsByCategory(key).subscribe((res: any) => {
       this.products = res
+      this.loading = false
     })
   }
+
+ 
 }
