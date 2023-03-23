@@ -11,6 +11,7 @@ export class AllProductsComponent implements OnInit {
   products: any = []
   category: any = []
   loading: boolean = false
+  cartProducts: any[] = []
   constructor(private service: ProductsService) {
 
   }
@@ -43,7 +44,7 @@ export class AllProductsComponent implements OnInit {
     let value = event.target.value;
     (value == 'all') ? this.getProducts() : this.getProductsCat(value);
   }
-  
+
   getProductsCat(key: string) {
     this.loading = true
     this.service.getProductsByCategory(key).subscribe((res: any) => {
@@ -52,5 +53,21 @@ export class AllProductsComponent implements OnInit {
     })
   }
 
- 
+  addToCart(event: any) {
+    if ("cart" in localStorage) {
+      this.cartProducts = JSON.parse(localStorage.getItem("cart")!)
+      let exist = this.cartProducts.find(item => item.id == event.id)
+      if (exist) {
+        alert("product is already in ur cart")
+      } else {
+        this.cartProducts.push(event)
+        localStorage.setItem("cart", JSON.stringify(this.cartProducts))
+      }
+    } else {
+      this.cartProducts.push(event)
+      localStorage.setItem("cart", JSON.stringify(this.cartProducts))
+    }
+  }
+
+
 }

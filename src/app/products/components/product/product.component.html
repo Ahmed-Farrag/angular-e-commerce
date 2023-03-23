@@ -5,7 +5,9 @@
     <p>{{ data.description }}</p>
   </div>
   <div class="px-3 mb-2 d-flex justify-content-between align-datas-center">
-    <button type="button" class="btn btn-success">Add to Cart</button>
+    <button type="button" class="btn btn-success" (click)="add()">
+      Add to Cart
+    </button>
     <span>{{ data.price }}</span>
   </div>
 </div>
