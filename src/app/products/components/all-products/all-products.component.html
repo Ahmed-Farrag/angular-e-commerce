@@ -1,7 +1,7 @@
 <div class="my-2 w-25">
   <label for="" class="my-1">Categorys: </label>
-  <select class="form-control">
-    <option value="all" selected>All</option>
+  <select class="form-control" (change)="filterCategory($event)">
+    <option value="all" selected >All</option>
     <option value="{{ option }}" *ngFor="let option of category">
       {{ option }}
     </option>

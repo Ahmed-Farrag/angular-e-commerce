@@ -22,7 +22,6 @@ export class AllProductsComponent implements OnInit {
       this.products = res
     }, error => {
       console.log(error.message);
-
     })
   }
   getCategory() {
@@ -30,7 +29,17 @@ export class AllProductsComponent implements OnInit {
       this.category = res
     }, error => {
       console.log(error.message);
+    })
+  }
 
+  filterCategory(event: any) {
+    let value = event.target.value;
+    (value == 'all') ? this.getProducts() : this.getProductsCat(value);
+
+  }
+  getProductsCat(key: string) {
+    this.service.getProductsByCategory(key).subscribe((res: any) => {
+      this.products = res
     })
   }
 }

@@ -14,4 +14,7 @@ export class ProductsService {
   getAllCategory() {
     return this.http.get(`${environment.baseApi}products/categories`)
   }
+  getProductsByCategory(key: string) {
+    return this.http.get(`${environment.baseApi}products/category/${key}`)
+  }
 }
