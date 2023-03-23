@@ -1,3 +1,4 @@
+import { environment } from './../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -8,6 +9,6 @@ export class ProductsService {
 
   constructor(private http: HttpClient) { }
   getAllProducts() {
-    return this.http.get('https://fakestoreapi.com/products')
+    return this.http.get(`${environment.baseApi}products`)
   }
 }
