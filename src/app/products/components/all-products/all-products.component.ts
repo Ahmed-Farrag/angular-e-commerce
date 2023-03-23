@@ -42,8 +42,8 @@ export class AllProductsComponent implements OnInit {
   filterCategory(event: any) {
     let value = event.target.value;
     (value == 'all') ? this.getProducts() : this.getProductsCat(value);
-
   }
+  
   getProductsCat(key: string) {
     this.loading = true
     this.service.getProductsByCategory(key).subscribe((res: any) => {
