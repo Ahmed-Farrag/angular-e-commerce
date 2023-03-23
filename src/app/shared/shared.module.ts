@@ -30,7 +30,8 @@ import { SelectComponent } from './components/select/select.component';
     HeaderComponent,
     // ProductsModule
     SpinnerComponent,
-    SelectComponent
+    SelectComponent,
+    FormsModule
   ]
 
 })
