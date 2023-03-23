@@ -18,6 +18,9 @@ export class AllProductsComponent implements OnInit {
   getProducts() {
     this.service.getAllProducts().subscribe((res: any) => {
       this.products = res
+    }, error => {
+      console.log(error.message);
+
     })
   }
 }

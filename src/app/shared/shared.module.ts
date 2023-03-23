@@ -1,3 +1,4 @@
+import { ProductsModule } from './../products/products.module';
 
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -23,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   exports: [
     HeaderComponent,
+    // ProductsModule
   ]
 
 })
