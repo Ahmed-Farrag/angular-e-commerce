@@ -1,0 +1,53 @@
+<div class="cartBox">
+  <h1 class="text-dark">Shoping Cart</h1>
+  <div class="headCart">
+    <p class="lead">item in your cart</p>
+    <span class="text-danger">clear shopping cart</span>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Price</th>
+        <th style="width: 25%">Quantity</th>
+        <th>Total</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of cartProducts">
+        <td><img src="{{ item.item.image }}" alt="" /></td>
+        <td>{{ item.item.title }}</td>
+        <td>{{ item.item.Price }}</td>
+        <td>
+          <div class="quantity">
+            <button class="btn btn-primary">+</button>
+            <input
+              type="number"
+              min="1"
+              class="form-control"
+              [(ngModel)]="item.quantity"
+            />
+            <button class="btn btn-primary">-</button>
+          </div>
+        </td>
+
+        <td>{{ item.item.Price * item.quantity }}</td>
+        <td><button class="btn btn-danger">Delete</button></td>
+        <!-- </td> -->
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>total: 1500</th>
+        <th><button class="btn btn-success">order now</button></th>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+<div class="alert alert-success">Your order is successfuly</div>

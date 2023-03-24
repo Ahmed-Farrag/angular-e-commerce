@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  person: string[] = ['ahmed', 'farrag']
+  isOpen: boolean = false;
+  toggle() {
+    this.isOpen = !this.isOpen
+  }
 }
