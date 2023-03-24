@@ -28,7 +28,7 @@ import { SelectComponent } from './components/select/select.component';
   ],
   exports: [
     HeaderComponent,
-    // ProductsModule
+    // ProductsModule,
     SpinnerComponent,
     SelectComponent,
     FormsModule

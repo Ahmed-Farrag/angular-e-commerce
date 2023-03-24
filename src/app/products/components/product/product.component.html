@@ -17,6 +17,6 @@
       <input type="number" class="form-control" [(ngModel)]="amount" />
       <button class="btn btn-danger" (click)="add()">Add</button>
     </div>
-    <span>{{ data.price }}</span>
+    <span>{{ data.price | currency }} </span>
   </div>
 </div>

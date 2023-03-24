@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { NgModule } from '@angular/core';
@@ -17,7 +18,8 @@ import { ProductComponent } from './components/product/product.component';
     ],
     imports: [
         CommonModule,
-        SharedModule
+        SharedModule,
+        RouterModule
     ]
 })
 export class ProductsModule { }

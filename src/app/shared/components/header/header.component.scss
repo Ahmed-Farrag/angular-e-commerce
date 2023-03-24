@@ -2,6 +2,10 @@ nav {
     background: linear-gradient(to right, #bdc3c7, #2c3e50);
     color: #fff;
 
+    h2 {
+        cursor: pointer;
+    }
+
     .content {
         display: flex;
         justify-content: space-between;
