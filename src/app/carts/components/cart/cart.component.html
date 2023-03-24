@@ -16,24 +16,28 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of cartProducts">
+      <tr *ngFor="let item of cartProducts; let index = index">
         <td><img src="{{ item.item.image }}" alt="" /></td>
         <td>{{ item.item.title }}</td>
-        <td>{{ item.item.Price }}</td>
+        <td>{{ item.item.price | currency }}</td>
         <td>
           <div class="quantity">
-            <button class="btn btn-primary">+</button>
+            <button class="btn btn-primary" (click)="addAmount(index)">
+              +
+            </button>
             <input
               type="number"
               min="1"
               class="form-control"
               [(ngModel)]="item.quantity"
             />
-            <button class="btn btn-primary">-</button>
+            <button class="btn btn-primary" (click)="minsAmount(index)">
+              -
+            </button>
           </div>
         </td>
 
-        <td>{{ item.item.Price * item.quantity }}</td>
+        <td>{{ item.item.price * item.quantity }}</td>
         <td><button class="btn btn-danger">Delete</button></td>
         <!-- </td> -->
       </tr>
@@ -44,7 +48,7 @@
         <th></th>
         <th></th>
         <th></th>
-        <th>total: 1500</th>
+        <th>total: {{ total | currency }}</th>
         <th><button class="btn btn-success">order now</button></th>
       </tr>
     </tfoot>
