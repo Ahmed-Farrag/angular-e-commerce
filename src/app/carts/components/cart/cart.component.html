@@ -1,8 +1,13 @@
 <div class="cartBox">
   <h1 class="text-dark">Shoping Cart</h1>
   <div class="headCart">
-    <p class="lead">item in your cart</p>
-    <span class="text-danger">clear shopping cart</span>
+    <p class="lead">
+      you have <label class="text-danger">{{ cartProducts.length }}</label> in
+      your cart
+    </p>
+    <button class="btn btn-outline-danger" (click)="clearCart()">
+      clear shopping cart
+    </button>
   </div>
   <table class="table table-striped">
     <thead>
@@ -30,6 +35,7 @@
               min="1"
               class="form-control"
               [(ngModel)]="item.quantity"
+              (change)="detectChange()"
             />
             <button class="btn btn-primary" (click)="minsAmount(index)">
               -
@@ -38,7 +44,11 @@
         </td>
 
         <td>{{ item.item.price * item.quantity }}</td>
-        <td><button class="btn btn-danger">Delete</button></td>
+        <td>
+          <button class="btn btn-danger" (click)="deleteProduct(index)">
+            Delete
+          </button>
+        </td>
         <!-- </td> -->
       </tr>
     </tbody>
