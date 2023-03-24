@@ -1,5 +1,5 @@
 <div class="cartBox">
-  <h1 class="text-dark">Shoping Cart</h1>
+  <h1 class="text-dark">Shopping Cart</h1>
   <div class="headCart">
     <p class="lead">
       you have <label class="text-danger">{{ cartProducts.length }}</label> in
@@ -59,9 +59,11 @@
         <th></th>
         <th></th>
         <th>total: {{ total | currency }}</th>
-        <th><button class="btn btn-success">order now</button></th>
+        <th>
+          <button class="btn btn-success" (click)="addCart()">order now</button>
+        </th>
       </tr>
     </tfoot>
   </table>
 </div>
-<div class="alert alert-success">Your order is successfuly</div>
+<div class="alert alert-success" *ngIf="success">Your order is successfuly</div>
